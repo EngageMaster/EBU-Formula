@@ -24,6 +24,8 @@
             --dark-grey: #555759;
             --pale-red: #FFE6EC; /* For Alert Card background */
             --highlight-bg: #e6e6fa; /* Light lavender for highlights */
+            --success-green: #22c55e; /* Tailwind green-500 */
+            --error-red: #ef4444; /* Tailwind red-500 */
         }
 
         /* Apply Base Font (Montserrat Regular) and default text color */
@@ -132,7 +134,8 @@
             padding: 6rem 1.5rem 8rem; /* Top padding, side padding, bottom padding to accommodate banner */
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             box-sizing: border-box; position: relative; /* Needed for absolute positioned banner */
-            overflow: hidden; /* Prevent content overflow */
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            overflow-y: auto; /* Allow vertical scroll if needed */
         }
 
         /* Font Size Classes (Approximating points) */
@@ -164,133 +167,206 @@
             margin-top: 1rem;
         }
 
-        /* Style for Rationale Cards */
-        .rationale-card {
+        /* Style for Storyboard Cards */
+        .storyboard-card { /* Renamed from rationale-card */
             border-left-width: 8px; /* Thicker left border for emphasis */
         }
+
+        /* Utility for list items with icons */
+        .list-item-icon {
+            display: flex;
+            align-items: flex-start; /* Align icon with first line of text */
+            margin-bottom: 0.5rem; /* Space between list items */
+        }
+        .list-item-icon i {
+            margin-right: 0.75rem; /* Space between icon and text */
+            margin-top: 0.25rem; /* Adjust vertical alignment if needed */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        /* Table styling for new slides */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem; /* Slightly smaller font for tables */
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .data-table th {
+            background-color: var(--light-grey);
+            font-weight: 700;
+            color: var(--deep-blue);
+        }
+        .data-table td.center { text-align: center; }
+        .data-table .icon-sm { width: 1.25rem; height: 1.25rem; } /* Smaller icons for table */
+
+        /* Styling for Activity Cards */
+        .activity-card {
+            background-color: var(--light-grey);
+            border: 1px solid var(--deep-purple);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+         .activity-card h4 {
+            color: var(--deep-purple);
+            font-size: 1.1rem; /* Slightly larger heading */
+            margin-bottom: 0.5rem;
+         }
+         .activity-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+         }
+         .activity-card .details {
+            margin-top: auto; /* Push details to bottom */
+            font-size: 0.8rem;
+            color: var(--dark-grey);
+         }
 
     </style>
 </head>
 <body class="bg-white">
 
-    <section id="slide-rationale" class="bg-slide-grey">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--deep-blue);">EBU. The Formula Of The Future - Storyboard</h2>
-        <p class="text-center text-lg mb-10 max-w-3xl" style="color: var(--dark-grey);">
+    <section id="storyboard" class="bg-slide-grey"> <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--deep-blue);">EBU. The Formula Of The Future - Storyboard</h2> <p class="text-center text-lg mb-10 max-w-3xl" style="color: var(--dark-grey);">
             This presentation follows a non-linear path to showcase our journey and the EBU formula. Here's the rationale behind each step:
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl">
-            <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--deep-blue);">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-7xl"> <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--deep-blue);">
                 <div class="flex items-center mb-3">
-                    <i data-feather="chevrons-right" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">Slide 1: 2030 Vision</h3>
+                    <span class="font-bold text-lg mr-2">1.</span><i data-feather="chevrons-right" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">2030 Vision</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why start here?</strong> To <strong class="font-bold-inline">Hook & Inspire</strong>. Begin with the bold, aspirational end-state (full patient access) to immediately capture attention and frame the entire journey's purpose.
+                    <strong>Why?</strong> Hook & Inspire with the aspirational end-state.
                 </p>
             </div>
-            <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--deep-purple); animation-delay: 0.1s;">
+            <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--deep-purple); animation-delay: 0.1s;">
                 <div class="flex items-center mb-3">
-                    <i data-feather="map" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-purple);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--deep-purple);">Slide 2: Market Context</h3>
+                     <span class="font-bold text-lg mr-2">2.</span><i data-feather="map" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-purple);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--deep-purple);">Market Context</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why this slide?</strong> To <strong class="font-bold-inline">Contextualize</strong>. Ground the audience in the Oman CF market realities – size, budget, and critical patient journey gaps – setting the stage for the challenge.
+                    <strong>Why?</strong> Contextualize market size, budget, and patient journey gaps.
                 </p>
             </div>
-            <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--fuchsia); animation-delay: 0.2s;">
+            <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--fuchsia); animation-delay: 0.2s;">
                  <div class="flex items-center mb-3">
-                    <i data-feather="alert-triangle" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--fuchsia);">Slide 3: 2022 Challenge</h3>
+                     <span class="font-bold text-lg mr-2">3.</span><i data-feather="alert-triangle" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--fuchsia);">2022 Challenge</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why jump back?</strong> To highlight <strong class="font-bold-inline">Urgency & Progress</strong>. Show the difficult starting point (copy treatments, lost tender) to emphasize the magnitude of our subsequent achievements.
+                    <strong>Why?</strong> Highlight Urgency & Progress by showing the difficult starting point.
                 </p>
             </div>
-            <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--deep-blue); animation-delay: 0.3s;">
+             <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--fuchsia); animation-delay: 0.3s;">
                  <div class="flex items-center mb-3">
-                    <i data-feather="edit" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">Slide 4: 2023 Strategy</h3>
+                     <span class="font-bold text-lg mr-2">3b.</span><i data-feather="globe" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--fuchsia);">Global Context</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why detail this?</strong> To <strong class="font-bold-inline">Demonstrate Strategy ('E')</strong>. Explain our initial 'Efficiency' actions – segmentation and targeted early initiatives – showing a clear, data-driven plan.
+                    <strong>Why?</strong> Establish Vertex's unique position vs. copies based on stringent regulatory approvals.
                 </p>
             </div>
-            <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--deep-purple); animation-delay: 0.4s;">
+            <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--deep-blue); animation-delay: 0.4s;">
+                 <div class="flex items-center mb-3">
+                     <span class="font-bold text-lg mr-2">4.</span><i data-feather="edit" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">2023 Strategy</h3>
+                </div>
+                <p class="text-16pt" style="color: var(--dark-grey);">
+                    <strong>Why?</strong> Demonstrate Strategy ('E') - segmentation, needs analysis, access initiatives.
+                </p>
+            </div>
+             <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--deep-blue); animation-delay: 0.5s;">
+                 <div class="flex items-center mb-3">
+                     <span class="font-bold text-lg mr-2">4b.</span><i data-feather="activity" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">Educational Activities</h3>
+                </div>
+                <p class="text-16pt" style="color: var(--dark-grey);">
+                    <strong>Why?</strong> Showcase commitment to HCP education and building clinical confidence.
+                </p>
+            </div>
+            <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--deep-purple); animation-delay: 0.6s;">
                 <div class="flex items-center mb-3">
-                    <i data-feather="flag" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-purple);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--deep-purple);">Slide 5: 2024 RFQ</h3>
+                     <span class="font-bold text-lg mr-2">5.</span><i data-feather="flag" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-purple);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--deep-purple);">2024 RFQ</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why this milestone?</strong> To show <strong class="font-bold-inline">Negotiation & Boldness ('B')</strong>. Highlight the first major breakthrough (full portfolio RFQ) and the bold high-level engagement required.
+                    <strong>Why?</strong> Show Re-entry & Boldness ('B') - RFQ milestone, stakeholder equipping, PM visit.
                 </p>
             </div>
-            <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--magenta); animation-delay: 0.5s;">
+            <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--magenta); animation-delay: 0.7s;">
                  <div class="flex items-center mb-3">
-                    <i data-feather="award" class="icon-sm mr-3 flex-shrink-0" style="color: var(--magenta);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--magenta);">Slide 6: 2025 Win</h3>
+                     <span class="font-bold text-lg mr-2">6.</span><i data-feather="award" class="icon-sm mr-3 flex-shrink-0" style="color: var(--magenta);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--magenta);">2025 Win</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why celebrate?</strong> To showcase <strong class="font-bold-inline">Success & Impact</strong>. Present the tangible results of our strategy – budget share, patient share growth, and patient numbers – proving the formula works.
+                    <strong>Why?</strong> Showcase Success & Impact - tender results, share gains, budget expansion.
                 </p>
             </div>
-             <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--magenta); animation-delay: 0.6s;">
+             <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--magenta); animation-delay: 0.8s;">
                  <div class="flex items-center mb-3">
-                    <i data-feather="key" class="icon-sm mr-3 flex-shrink-0" style="color: var(--magenta);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--magenta);">Slide 7: EBU DNA</h3>
+                     <span class="font-bold text-lg mr-2">7.</span><i data-feather="key" class="icon-sm mr-3 flex-shrink-0" style="color: var(--magenta);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--magenta);">EBU DNA</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why reveal now?</strong> To <strong class="font-bold-inline">Cement the Formula</strong>. Explicitly define EBU = Efficiency • Boldness • You, connecting the journey's elements to our core operational DNA.
+                    <strong>Why?</strong> Cement the Formula - Define E, B, U and link to the journey.
                 </p>
             </div>
-             <div class="card rationale-card animate-on-scroll fade-in" style="border-color: var(--deep-blue); animation-delay: 0.7s;">
+             <div class="card storyboard-card animate-on-scroll fade-in" style="border-color: var(--deep-blue); animation-delay: 0.9s;">
                  <div class="flex items-center mb-3">
-                    <i data-feather="user-check" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
-                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">Slide 8: Call to Action</h3>
+                     <span class="font-bold text-lg mr-2">8.</span><i data-feather="user-check" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
+                    <h3 class="text-xl font-bold" style="color: var(--deep-blue);">Call to Action</h3>
                 </div>
                 <p class="text-16pt" style="color: var(--dark-grey);">
-                    <strong>Why end this way?</strong> To <strong class="font-bold-inline">Mobilize & Empower ('U')</strong>. Rally the team, acknowledge their pride, and issue a clear call to action, emphasizing their crucial role ('U') moving forward.
+                    <strong>Why?</strong> Mobilize & Empower ('U') - Rally the team, emphasize their role.
                 </p>
             </div>
         </div>
         <div class="presenter-notes max-w-7xl w-full mt-10">
-             <strong>Section: “Slide Rationale”</strong>
+             <strong>Section: “Storyboard”</strong>
              <ul>
                  <li><strong>Objective:</strong> Explain the narrative flow and purpose of each slide to stakeholders/managers.</li>
-                 <li><strong>Layout:</strong> Grid layout (2 or 3 columns) of rationale cards.</li>
-                 <li><strong>Card Style:</strong> Standard card with thicker left border matching the primary color theme of the slide it describes.</li>
-                 <li><strong>Content:</strong> Each card has Slide #/Title and a brief "Why this slide?" explanation focusing on the key objective (Hook, Contextualize, Urgency, Strategy, Boldness, Success, Formula, Mobilize).</li>
-                 <li><strong>Icons:</strong> Use relevant icons for each rationale point (e.g., <code>chevrons-right</code> for Vision, <code>map</code> for Context, <code>alert-triangle</code> for Challenge, etc.).</li>
+                 <li><strong>Layout:</strong> Grid layout (e.g., 4 columns) of storyboard cards.</li>
+                 <li><strong>Card Style:</strong> Standard card with thicker left border matching the primary color theme of the slide it describes. Numbered for clarity.</li>
+                 <li><strong>Content:</strong> Each card has Slide #/Title and a brief "Why?" explanation focusing on the key objective.</li>
                  <li><strong>Animation:</strong> Simple <code>fade-in</code> for each card, staggered.</li>
-                 <li><strong>Focus:</strong> Justify the non-linear presentation structure and the strategic importance of each content block.</li>
              </ul>
          </div>
     </section>
 
     <section id="slide1" class="bg-slide-white">
         <div class="card animate-on-scroll fly-in-bottom text-center max-w-3xl" style="border-color: var(--deep-blue);">
-            <h1 class="text-48pt font-bold mb-4" style="color: var(--deep-blue);">2030</h1>
+            <h1 class="text-48pt font-bold mb-4" style="color: var(--deep-blue);">2030 Vision</h1>
             <div class="flex items-center justify-center space-x-3 mb-6">
                 <i data-feather="award" class="icon-lg flex-shrink-0" style="color: var(--deep-blue);"></i>
                 <p class="text-24pt text-left" style="color: var(--dark-grey);">
-                    All Omani CF patients thriving on Vertex Therapy
+                    All Omani CF patients thriving on <strong class="font-bold-inline">licensed Vertex treatment</strong>.
                 </p>
+            </div>
+             <div class="text-left text-sm italic my-4 p-3 bg-gray-100 rounded">
+                <i data-feather="mic" class="icon-xs icon-inline"></i> Voice Over (Hamza): All Omani cystic fibrosis (CF) patients are now on licensed Vertex treatment... Let me show you through an example...
             </div>
             <div class="ebu-callout">
                 <strong>E:</strong> 100% adoption goal achieved. <strong>B:</strong> Bold nationwide rollout realized. <strong>U:</strong> Patients & Team at the heart of success.
             </div>
             <div class="presenter-notes">
-                <strong>Slide 1: “2030: The Future Realized”</strong>
+                <strong>Slide 1: “2030 Vision”</strong>
                 <ul>
                     <li><strong>Objective:</strong> Hook audience with our vision.</li>
-                    <li><strong>Infographic Focus:</strong> The ultimate goal - 100% patient access & thriving.</li>
-                    <li><strong>Layout:</strong> Single large center card. Bottom ribbon.</li>
-                    <li><strong>Animation:</strong> Card: <code>fly-in-bottom</code> (0.8s). Ribbon: <code>fly-in-bottom</code> (0.6s, delay 0.2s).</li>
-                    <li><strong>Voice-over Cue:</strong> “Imagine a future where every CF patient in Oman lives their fullest life…”</li>
+                    <li><strong>Infographic Focus:</strong> The ultimate goal - 100% patient access to licensed therapy & thriving. Explicit VO cue added.</li>
                 </ul>
             </div>
         </div>
         <div class="bottom-ribbon animate-on-scroll fly-in-bottom" style="animation-delay: 0.2s;">
-            EBU: The Formula of The Future
+            The EBU Formula of the Future
         </div>
     </section>
 
@@ -322,12 +398,12 @@
             <div class="card animate-on-scroll fly-in-right" style="border-color: var(--deep-purple); animation-delay: 0.1s;">
                  <div class="flex items-center mb-3">
                      <i data-feather="alert-triangle" class="icon-md mr-4 flex-shrink-0" style="color: var(--deep-purple);"></i>
-                     <h3 class="text-24pt font-bold" style="color: var(--deep-purple);">Key Gaps</h3>
+                     <h3 class="text-24pt font-bold" style="color: var(--deep-purple);">Key Patient Journey Gaps</h3>
                  </div>
                  <ul class="list-none space-y-2 text-16pt mt-2" style="color: var(--dark-grey);">
-                    <li class="flex items-start"><i data-feather="map-pin" class="icon-xs icon-inline mr-2 mt-1 flex-shrink-0" style="color: var(--deep-purple);"></i> Limited referral pathways</li>
-                    <li class="flex items-start"><i data-feather="search" class="icon-xs icon-inline mr-2 mt-1 flex-shrink-0" style="color: var(--deep-purple);"></i> No Newborn Screening (NBS)</li>
-                    <li class="flex items-start"><i data-feather="home" class="icon-xs icon-inline mr-2 mt-1 flex-shrink-0" style="color: var(--deep-purple);"></i> Centralized care centers</li>
+                    <li class="list-item-icon"><i data-feather="map-pin" class="icon-xs" style="color: var(--deep-purple);"></i> Limited referral pathways</li>
+                    <li class="list-item-icon"><i data-feather="search" class="icon-xs" style="color: var(--deep-purple);"></i> No Newborn Screening (NBS)</li>
+                    <li class="list-item-icon"><i data-feather="home" class="icon-xs" style="color: var(--deep-purple);"></i> Centralized care centers</li>
                 </ul>
             </div>
         </div>
@@ -338,194 +414,392 @@
              <strong>Slide 2: “Oman CF Market Context”</strong>
              <ul>
                  <li><strong>Objective:</strong> Ground the audience in market scale & gaps.</li>
-                 <li><strong>Infographic Focus:</strong> Key market numbers (Population, GDP, Budget) and critical healthcare system gaps.</li>
-                 <li><strong>Layout:</strong> 2x2 grid of cards.</li>
-                 <li><strong>Animation:</strong> Staggered fly-in from left/right.</li>
+                 <li><strong>Infographic Focus:</strong> Key market numbers and critical healthcare system gaps.</li>
              </ul>
          </div>
     </section>
 
     <section id="slide3" class="bg-slide-white">
         <div class="card animate-on-scroll fly-in-left max-w-3xl bg-pale-red" style="border-color: var(--fuchsia);">
-            <h2 class="text-36pt font-bold mb-6 text-center" style="color: var(--fuchsia);">2022: Brand Challenge</h2>
+            <h2 class="text-36pt font-bold mb-2 text-center" style="color: var(--fuchsia);">Where the Story Began</h2>
+            <h3 class="text-24pt font-semibold mb-6 text-center" style="color: var(--fuchsia);">2022: A Challenging Brand History</h3>
             <div class="space-y-4 text-center">
                  <div class="flex items-center justify-center text-20pt" style="color: var(--dark-grey);">
-                    <i data-feather="alert-circle" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
+                    <i data-feather="alert-triangle" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
                     <span><span class="font-bold-inline text-24pt">65</span> patients on copy treatments</span>
                 </div>
                  <div class="flex items-center justify-center text-20pt" style="color: var(--dark-grey);">
-                     <i data-feather="alert-circle" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
-                     <span>Tender awarded <span class="font-bold-inline text-24pt">2</span> copy products → <span class="font-bold-inline text-24pt">85</span> patients impacted</span>
+                     <i data-feather="alert-triangle" class="icon-sm mr-3 flex-shrink-0" style="color: var(--fuchsia);"></i>
+                     <span>Tender awarded <span class="font-bold-inline text-24pt">2</span> copy products (covering <span class="font-bold-inline text-24pt">85</span> patients)</span>
                 </div>
             </div>
              <div class="ebu-callout mt-8">
-                <strong>E:</strong> Efficiency gap & market share loss. <strong>B:</strong> Need for bold re-entry. <strong>U:</strong> Team courage required.
+                <strong>E:</strong> Efficiency gap & market share loss clearly defined. <strong>B:</strong> Need for bold re-entry established. <strong>U:</strong> Team courage tested.
             </div>
              <div class="presenter-notes">
                  <strong>Slide 3: “2022: Brand Challenge”</strong>
                  <ul>
                      <li><strong>Objective:</strong> Show starting point & urgency.</li>
-                     <li><strong>Infographic Focus:</strong> The critical numbers defining the challenge - patients on copies, impact of lost tender.</li>
-                     <li><strong>Layout:</strong> Single large alert card.</li>
-                     <li><strong>Animation:</strong> Card fly-in left, data points fade-in.</li>
+                     <li><strong>Infographic Focus:</strong> The critical numbers defining the challenge.</li>
                  </ul>
              </div>
         </div>
     </section>
 
+    <section id="slide3b" class="bg-slide-grey">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center" style="color: var(--fuchsia);">Global Context: CFTRm Manufacturers</h2>
+        <p class="text-center text-lg mb-8 max-w-3xl" style="color: var(--dark-grey);">
+            Vertex CFTRm are the only modulators assessed for efficacy, safety, & quality leading to approval from multiple well-recognized, stringent healthcare authorities.
+        </p>
+        <div class="card animate-on-scroll fade-in w-full max-w-5xl" style="border-color: var(--fuchsia);">
+            <div class="overflow-x-auto">
+                <table class="data-table w-full">
+                    <thead>
+                        <tr>
+                            <th>Healthcare Authority</th>
+                            <th>Vertex</th>
+                            <th>Gador</th>
+                            <th>Bago</th>
+                            <th>Tutur</th>
+                            <th>Lupin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FDA</td>
+                            <td class="center"><i data-feather="check" class="icon-sm" style="color: var(--success-green);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                        </tr>
+                        <tr>
+                            <td>EMA</td>
+                             <td class="center"><i data-feather="check" class="icon-sm" style="color: var(--success-green);"></i> <span class="text-xs block">(IVA, LUM/IVA, TEZ/IVA, ELX/TEZ/IVA)</span></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                        </tr>
+                         <tr>
+                            <td>Health Canada</td>
+                             <td class="center"><i data-feather="check" class="icon-sm" style="color: var(--success-green);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                            <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                        </tr>
+                         <tr>
+                            <td>Oman MOH</td>
+                             <td class="center"><i data-feather="check" class="icon-sm" style="color: var(--success-green);"></i> <span class="text-xs block">(IVA)</span></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                        </tr>
+                         <tr>
+                            <td>UAE MOH</td>
+                             <td class="center"><i data-feather="check" class="icon-sm" style="color: var(--success-green);"></i> <span class="text-xs block">(IVA)</span></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                             <td class="center"><i data-feather="x" class="icon-sm" style="color: var(--error-red);"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="ebu-callout mt-4">
+                <strong>E:</strong> Efficiently highlights quality differentiation. <strong>B:</strong> Boldly contrasts Vertex approvals vs. copies. <strong>U:</strong> Equips team with key competitive arguments.
+            </div>
+            <div class="presenter-notes">
+                <strong>Slide 3b: “Global Context: CFTRm Manufacturers”</strong>
+                <ul>
+                    <li><strong>Objective:</strong> Establish Vertex's unique quality and regulatory standing compared to competitors.</li>
+                    <li><strong>Infographic Focus:</strong> Table comparing major regulatory approvals (FDA, EMA, Canada, Oman, UAE) for Vertex vs. key competitors (Gador, Bago, Tutur, Lupin). Use check/cross icons.</li>
+                    <li><strong>Layout:</strong> Single card containing the comparison table.</li>
+                    <li><strong>Animation:</strong> Card fade-in.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
      <section id="slide4" class="bg-slide-grey">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--deep-blue);">2023: Segmentation & Early ‘E’ Plan</h2>
-        <div class="flex flex-col lg:flex-row gap-8 w-full max-w-6xl mb-8 items-stretch"> <div class="flex-1 space-y-6 flex flex-col">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--deep-blue);">2023: Strategic Comeback – "Plan E" & Access</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl mb-8 items-stretch">
+            <div class="space-y-6 flex flex-col">
                 <h3 class="text-24pt font-bold text-center mb-4" style="color: var(--deep-blue);">Plan 'E' Actions</h3>
                 <div class="card animate-on-scroll fly-in-right flex-grow" style="border-color: var(--deep-blue);">
-                    <div class="flex items-center mb-3">
-                        <span class="text-3xl font-bold mr-3" style="color: var(--deep-blue);">1</span>
-                        <i data-feather="book-open" class="icon-sm mr-2 flex-shrink-0" style="color: var(--deep-blue);"></i>
+                    <div class="list-item-icon mb-2">
+                        <i data-feather="book-open" class="icon-sm" style="color: var(--deep-blue);"></i>
                         <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Educate HCPs & Assess Performance</h4>
                     </div>
-                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Evaluate management & outcomes.</p> </div>
+                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Evaluate patient management & treatment outcomes.</p>
+                </div>
                  <div class="card animate-on-scroll fly-in-right flex-grow" style="border-color: var(--deep-blue); animation-delay: 0.1s;">
-                     <div class="flex items-center mb-3">
-                        <span class="text-3xl font-bold mr-3" style="color: var(--deep-blue);">2</span>
-                        <i data-feather="target" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
-                        <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Identify Special Pop (End-Stage Lung)</h4>
+                     <div class="list-item-icon mb-2">
+                        <i data-feather="target" class="icon-sm" style="color: var(--deep-blue);"></i>
+                        <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Identify Special Populations</h4>
                     </div>
-                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Focus on high-need patients.</p>
-                    <div class="mt-2 text-sm italic text-gray-500 self-start">(Chart placeholder)</div>
+                    <ul class="list-disc list-inside text-16pt mt-auto space-y-1" style="color: var(--dark-grey);">
+                        <li>End-stage lung disease</li>
+                        <li>Advanced lung disease</li>
+                    </ul>
                 </div>
                  <div class="card animate-on-scroll fly-in-right flex-grow" style="border-color: var(--deep-blue); animation-delay: 0.2s;">
-                     <div class="flex items-center mb-3">
-                        <span class="text-3xl font-bold mr-3" style="color: var(--deep-blue);">3</span>
-                        <i data-feather="heart" class="icon-sm mr-3 flex-shrink-0" style="color: var(--deep-blue);"></i>
+                     <div class="list-item-icon mb-2">
+                        <i data-feather="heart" class="icon-sm" style="color: var(--deep-blue);"></i>
                         <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Start Pediatric &lt; 6 Early</h4>
                     </div>
-                     <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Initiate early treatment pathways.</p>
+                     <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Target patients under age 6.</p>
                 </div>
             </div>
-            <div class="flex-1 lg:max-w-sm space-y-6 flex flex-col mt-8 lg:mt-0">
-                 <h3 class="text-24pt font-bold text-center mb-4" style="color: var(--deep-blue);">Market Segments</h3>
+
+            <div class="space-y-6 flex flex-col">
+                 <h3 class="text-24pt font-bold text-center mb-4" style="color: var(--deep-blue);">Market Segmentation</h3>
                  <div class="card animate-on-scroll fade-in bg-light-grey p-4 flex-grow" style="border-color: var(--dark-grey); animation-delay: 0.3s;">
-                    <div class="flex items-center mb-2">
-                        <i data-feather="target" class="icon-sm mr-2 flex-shrink-0" style="color: var(--dark-grey);"></i>
+                    <div class="list-item-icon mb-2">
+                        <i data-feather="target" class="icon-sm" style="color: var(--dark-grey);"></i>
                         <h4 class="text-lg font-semibold">Special Population</h4>
                     </div>
-                    <p class="text-16pt text-sm mt-auto" style="color: var(--dark-grey);">High-need (End Stage Lung)</p>
+                    <p class="text-16pt text-sm mt-auto" style="color: var(--dark-grey);">Address unmet needs with tailored Vertex solutions.</p>
                 </div>
                  <div class="card animate-on-scroll fade-in bg-light-grey p-4 flex-grow" style="border-color: var(--dark-grey); animation-delay: 0.4s;">
-                    <div class="flex items-center mb-2">
-                        <i data-feather="user" class="icon-sm mr-2 flex-shrink-0" style="color: var(--dark-grey);"></i>
+                    <div class="list-item-icon mb-2">
+                        <i data-feather="user" class="icon-sm" style="color: var(--dark-grey);"></i>
                         <h4 class="text-lg font-semibold">Pediatric &lt; 6</h4>
                     </div>
-                    <p class="text-16pt text-sm mt-auto" style="color: var(--dark-grey);">Address access gap</p>
+                    <p class="text-16pt text-sm mt-auto" style="color: var(--dark-grey);">Bridge gaps with specific Vertex brand options.</p>
                 </div>
                  <div class="card animate-on-scroll fade-in bg-light-grey p-4 flex-grow" style="border-color: var(--dark-grey); animation-delay: 0.5s;">
-                    <div class="flex items-center mb-2">
-                        <i data-feather="refresh-cw" class="icon-sm mr-2 flex-shrink-0" style="color: var(--fuchsia);"></i>
+                    <div class="list-item-icon mb-2">
+                        <i data-feather="refresh-cw" class="icon-sm" style="color: var(--fuchsia);"></i>
                         <h4 class="text-lg font-semibold">Copy Users</h4>
                     </div>
-                    <p class="text-16pt text-sm mt-auto" style="color: var(--dark-grey);">Strategic switch plan</p>
+                    <p class="text-16pt text-sm mt-auto" style="color: var(--dark-grey);">Highlight unmet needs & provide Vertex solutions.</p>
+                </div>
+            </div>
+
+            <div class="space-y-6 flex flex-col">
+                <h3 class="text-24pt font-bold text-center mb-4" style="color: var(--deep-blue);">Access & Affordability</h3>
+                <div class="card animate-on-scroll fly-in-left flex-grow" style="border-color: var(--deep-blue); animation-delay: 0.6s;">
+                    <div class="list-item-icon mb-2">
+                        <i data-feather="list" class="icon-sm" style="color: var(--deep-blue);"></i>
+                        <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Formulary Inclusion</h4>
+                    </div>
+                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Work towards MOH formulary listing.</p>
+                </div>
+                 <div class="card animate-on-scroll fly-in-left flex-grow" style="border-color: var(--deep-blue); animation-delay: 0.7s;">
+                     <div class="list-item-icon mb-2">
+                        <i data-feather="dollar-sign" class="icon-sm" style="color: var(--deep-blue);"></i>
+                        <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Budget Impact Modeling</h4>
+                    </div>
+                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Assess financial implications of all options.</p>
+                </div>
+                 <div class="card animate-on-scroll fly-in-left flex-grow" style="border-color: var(--deep-blue); animation-delay: 0.8s;">
+                     <div class="list-item-icon mb-2">
+                        <i data-feather="sliders" class="icon-sm" style="color: var(--deep-blue);"></i>
+                        <h4 class="text-xl font-bold" style="color: var(--deep-blue);">Stakeholder & Pricing Strategy</h4>
+                    </div>
+                     <ul class="list-disc list-inside text-16pt mt-auto space-y-1" style="color: var(--dark-grey);">
+                        <li>Stretch CF budget with MOH</li>
+                        <li>Reduce copy treatment spend</li>
+                        <li>Develop Vertex pricing scenarios</li>
+                    </ul>
                 </div>
             </div>
         </div>
-         <div class="ebu-callout max-w-6xl w-full">
-            <strong>E:</strong> Data-driven segmentation & action plan. <strong>B:</strong> Entering challenging segments. <strong>U:</strong> HCP & family partnership focus.
+         <div class="ebu-callout max-w-7xl w-full">
+            <strong>E:</strong> Data-driven segmentation, needs analysis, access planning. <strong>B:</strong> Proactively addressing access barriers & copy spend. <strong>U:</strong> Collaboration with HCPs & MOH stakeholders.
         </div>
-         <div class="presenter-notes max-w-6xl w-full">
-            <strong>Slide 4: “2023: Segmentation & Early ‘E’ Plan”</strong>
+         <div class="presenter-notes max-w-7xl w-full">
+            <strong>Slide 4: “2023: Strategic Comeback – "Plan E" & Access”</strong>
             <ul>
-                 <li><strong>Objective:</strong> Illustrate our “E” plan and resulting segmentation.</li>
-                 <li><strong>Infographic Focus:</strong> The three core 'E' actions and the three resulting market segments.</li>
-                 <li><strong>Layout:</strong> Two columns: Actions (stacked cards) on left, Segments (stacked cards/tiles) on right. Use `items-stretch` for equal height columns.</li>
-                 <li><strong>Animation:</strong> Actions fly-in right, Segments fade-in, staggered.</li>
+                 <li><strong>Objective:</strong> Illustrate our comprehensive “E” plan.</li>
+                 <li><strong>Infographic Focus:</strong> 'E' actions, market segments, and access/affordability strategies.</li>
             </ul>
          </div>
     </section>
 
+     <section id="slide4b" class="bg-slide-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center" style="color: var(--deep-blue);">CF Educational Activities</h2>
+         <p class="text-center text-lg mb-8 max-w-3xl" style="color: var(--dark-grey);">
+             Vertex & Biopharma-mea work with HCPs in Oman to develop and expand CF education programs for better well-informed clinical decisions.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl">
+            <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.1s;">
+                <h4>CF EXCEED 2022</h4>
+                <p>International Best Practices & Experience</p>
+                <div class="details">
+                    <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: F2F</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: Dec 2022</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: Dubai</p>
+                </div>
+            </div>
+             <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.2s;">
+                <h4>CF International Best Practices & Experience</h4>
+                 <p>&nbsp;</p> <div class="details">
+                    <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: F2F</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: Jun 2023</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: Muscat</p>
+                </div>
+            </div>
+             <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.3s;">
+                <h4>LEAD Preceptorship</h4>
+                 <p>(1 Slot)</p>
+                 <div class="details">
+                     <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: F2F</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: Sep 2023</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: Milan</p>
+                </div>
+            </div>
+             <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.4s;">
+                <h4>Nutritional Management for CF patients</h4>
+                 <p>&nbsp;</p> <div class="details">
+                    <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: F2F</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: Dec 2023</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: Muscat</p>
+                </div>
+            </div>
+             <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.5s;">
+                <h4>CF EXCEED 2023</h4>
+                 <p>&nbsp;</p> <div class="details">
+                    <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: F2F</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: Feb 2024</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: Athens</p>
+                </div>
+            </div>
+             <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.6s;">
+                <h4>ADVANCE Program</h4>
+                 <p>&nbsp;</p> <div class="details">
+                    <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: Hybrid</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: 2024</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: TBC</p>
+                </div>
+            </div>
+             <div class="card activity-card animate-on-scroll fade-in" style="animation-delay: 0.7s;">
+                <h4>CF EXCEED 2024</h4>
+                 <p>&nbsp;</p> <div class="details">
+                    <p><i data-feather="users" class="icon-xs icon-inline"></i> Type: F2F</p>
+                    <p><i data-feather="calendar" class="icon-xs icon-inline"></i> Date: Oct 2024</p>
+                    <p><i data-feather="map-pin" class="icon-xs icon-inline"></i> Location: TBC</p>
+                </div>
+            </div>
+        </div>
+         <div class="ebu-callout max-w-7xl w-full mt-8">
+            <strong>E:</strong> Consistent, efficient delivery of educational programs. <strong>B:</strong> Bold investment in continuous HCP development. <strong>U:</strong> Empowering the clinical community through shared knowledge.
+        </div>
+        <div class="presenter-notes max-w-7xl w-full">
+            <strong>Slide 4b: “CF Educational Activities”</strong>
+            <ul>
+                <li><strong>Objective:</strong> Demonstrate ongoing commitment to HCP education and partnership.</li>
+                <li><strong>Infographic Focus:</strong> Timeline/overview of key educational events (CF EXCEED, LEAD, Nutritional Mgmt, ADVANCE) with type, date, and location.</li>
+                <li><strong>Layout:</strong> Grid of activity cards.</li>
+                <li><strong>Animation:</strong> Cards fade-in staggered.</li>
+            </ul>
+        </div>
+    </section>
+
      <section id="slide5" class="bg-slide-white">
-        <div class="card animate-on-scroll fly-in-top w-full max-w-3xl relative" style="border-color: var(--deep-purple);">
-            <div class="flex items-center mb-6">
-                 <i data-feather="file-text" class="icon-lg mr-4 flex-shrink-0" style="color: var(--deep-purple);"></i>
-                 <h2 class="text-32pt font-bold" style="color: var(--deep-purple);">First MOH RFQ for full Vertex CF portfolio</h2>
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 my-6">
-                <div class="flex items-center bg-light-grey p-3 rounded-lg border border-gray-300 animate-on-scroll fade-in min-w-[200px] justify-center" style="animation-delay: 0.2s;">
-                    <i data-feather="activity" class="icon-sm mr-2 flex-shrink-0" style="color: var(--deep-blue);"></i>
-                    <span class="text-lg font-semibold" style="color: var(--deep-blue);">E: Efficiency</span>
-                </div>
-                 <div class="flex items-center bg-light-grey p-3 rounded-lg border border-gray-300 animate-on-scroll fade-in min-w-[200px] justify-center" style="animation-delay: 0.4s;">
-                    <i data-feather="shield" class="icon-sm mr-2 flex-shrink-0" style="color: var(--rich-magenta);"></i>
-                    <span class="text-lg font-semibold" style="color: var(--rich-magenta);">B: Boldness</span>
-                </div>
-            </div>
-
-            <div class="text-center mt-6 animate-on-scroll fade-in" style="animation-delay: 0.6s;">
-                 <div class="highlight-badge text-lg">
-                     <i data-feather="users" class="icon-sm mr-2 flex-shrink-0"></i>
-                     <span>Key Engagement: Dr. Tamer Eissa & VRTX meet Prime Minister</span>
+         <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--deep-purple);">2024: Re-entry Momentum</h2>
+        <div class="card animate-on-scroll fly-in-top w-full max-w-4xl relative" style="border-color: var(--deep-purple);">
+            <div class="list-item-icon mb-6">
+                 <i data-feather="check-circle" class="icon-lg" style="color: var(--deep-purple);"></i>
+                 <div>
+                    <h3 class="text-24pt font-bold" style="color: var(--deep-purple);">First MOH RFQ Received (Full Portfolio)</h3>
+                    <p class="text-16pt" style="color: var(--dark-grey);">After 4 years out of market.</p>
                  </div>
             </div>
 
-             <div class="ebu-callout mt-8">
-                <strong>E:</strong> Securing comprehensive RFQ. <strong>B:</strong> High-level stakeholder engagement. <strong>U:</strong> Cross-functional negotiation prep.
+             <div class="list-item-icon mb-6">
+                 <i data-feather="tool" class="icon-lg" style="color: var(--deep-purple);"></i>
+                 <div>
+                    <h3 class="text-24pt font-bold" style="color: var(--deep-purple);">Stakeholders Equipped</h3>
+                    <p class="text-16pt" style="color: var(--dark-grey);">Strong medical & commercial tools provided for advocacy.</p>
+                 </div>
+            </div>
+
+            <div class="list-item-icon mb-6">
+                 <i data-feather="users" class="icon-lg" style="color: var(--deep-purple);"></i>
+                 <div>
+                    <h3 class="text-24pt font-bold" style="color: var(--deep-purple);">Strategic PM Visit</h3>
+                    <div class="highlight-badge text-md mt-1"> <span>Dr. Tamer Eissa & VRTX reinforce partnership commitment.</span>
+                     </div>
+                 </div>
+            </div>
+
+            <div class="flex justify-center items-center gap-6 my-4 pt-4 border-t border-gray-300">
+                <div class="flex items-center text-lg font-semibold" style="color: var(--deep-blue);">
+                    <i data-feather="activity" class="icon-sm mr-2"></i> E: Efficiency
+                </div>
+                 <div class="flex items-center text-lg font-semibold" style="color: var(--rich-magenta);">
+                    <i data-feather="shield" class="icon-sm mr-2"></i> B: Boldness
+                </div>
+            </div>
+
+             <div class="ebu-callout mt-auto"> <strong>E:</strong> Efficient stakeholder preparation. <strong>B:</strong> Bold re-entry & high-level engagement. <strong>U:</strong> Unified team advocacy.
             </div>
              <div class="presenter-notes">
-                 <strong>Slide 5: “2024: RFQ & Negotiation”</strong>
+                 <strong>Slide 5: “2024: Re-entry Momentum”</strong>
                  <ul>
-                     <li><strong>Objective:</strong> Highlight first big milestone & negotiation kickoff.</li>
-                     <li><strong>Infographic Focus:</strong> The achievement of the full portfolio RFQ, the E & B elements demonstrated, and the critical PM meeting.</li>
-                     <li><strong>Layout:</strong> Single card with clear sections for headline, badges, and highlighted engagement.</li>
-                     <li><strong>Animation:</strong> Card fly-in top, badges & highlight fade-in staggered.</li>
+                     <li><strong>Objective:</strong> Show re-entry momentum & Boldness ('B').</li>
+                     <li><strong>Infographic Focus:</strong> Key achievements: RFQ, Stakeholders equipped, PM Visit.</li>
                  </ul>
              </div>
         </div>
     </section>
 
     <section id="slide6" class="bg-slide-grey">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--magenta);">2025: Tender Win Metrics</h2>
-        <div class="w-full max-w-4xl space-y-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--magenta);">2025: Breakthrough Achieved</h2>
+        <div class="w-full max-w-5xl space-y-8">
+            <div class="card animate-on-scroll zoom-in" style="border-color: var(--magenta);">
+                <div class="flex items-center justify-center mb-4">
+                    <i data-feather="award" class="icon-lg mr-4" style="color: var(--magenta);"></i>
+                    <h3 class="text-32pt font-bold text-center" style="color: var(--magenta);">Tender Awarded!</h3>
+                </div>
+                <p class="text-center text-20pt mb-2" style="color: var(--dark-grey);">For two key segments:</p>
+                <div class="flex justify-center gap-6 text-lg font-semibold">
+                    <span class="bg-light-grey px-3 py-1 rounded border border-gray-300">Special Population</span>
+                    <span class="bg-light-grey px-3 py-1 rounded border border-gray-300">Pediatric (&lt;6 years)</span>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div class="card animate-on-scroll fly-in-left text-center" style="border-color: var(--rich-magenta);">
+                <div class="card animate-on-scroll fly-in-left text-center" style="border-color: var(--rich-magenta); animation-delay: 0.2s;">
                     <i data-feather="trending-up" class="icon-lg mx-auto mb-3" style="color: var(--rich-magenta);"></i>
                     <h3 class="text-20pt font-semibold mb-1" style="color: var(--rich-magenta);">Budget Share</h3>
                     <p class="text-48pt font-bold-inline" style="color: var(--rich-magenta);">62%</p>
                 </div>
-                <div class="card animate-on-scroll fly-in-right text-center" style="border-color: var(--magenta);">
+                <div class="card animate-on-scroll fly-in-right text-center" style="border-color: var(--magenta); animation-delay: 0.2s;">
                      <i data-feather="pie-chart" class="icon-lg mx-auto mb-3" style="color: var(--magenta);"></i>
                      <h3 class="text-20pt font-semibold mb-1" style="color: var(--magenta);">Patient Share</h3>
                     <p class="text-48pt font-bold-inline" style="color: var(--magenta);">33%</p>
                 </div>
             </div>
-            <div class="w-full p-4 rounded-lg shadow-lg animate-on-scroll fade-in bg-dark-grey" style="animation-delay: 0.2s;">
-                <div class="flex flex-col sm:flex-row justify-around items-center gap-4 text-center">
-                     <div class="flex items-center bg-light-grey p-3 rounded min-w-[280px] justify-center">
-                        <i data-feather="users" class="icon-sm mr-2 flex-shrink-0" style="color: var(--dark-grey);"></i>
-                        <span class="text-16pt font-semibold" style="color: var(--dark-grey);"><span class="font-bold-inline text-20pt">168</span> vs 70 Patients</span>
-                    </div>
-                     <div class="flex items-center bg-light-grey p-3 rounded min-w-[280px] justify-center">
-                        <i data-feather="calendar" class="icon-sm mr-2 flex-shrink-0" style="color: var(--dark-grey);"></i>
-                        <span class="text-16pt font-semibold" style="color: var(--dark-grey);">12-Month Consumption</span>
-                    </div>
-                </div>
-            </div>
+
+            <div class="w-full p-4 rounded-lg shadow-lg animate-on-scroll fade-in bg-dark-grey" style="animation-delay: 0.4s;">
+                 <div class="flex items-center justify-center text-center text-white">
+                     <i data-feather="rocket" class="icon-sm mr-3 flex-shrink-0"></i>
+                     <span class="text-16pt font-semibold">Demonstrates success: Expanded allocated budget & compressed copy spend.</span>
+                 </div>
+                 </div>
         </div>
-         <div class="ebu-callout max-w-4xl w-full mt-8">
-            <strong>E:</strong> Efficient execution hits budget target. <strong>B:</strong> Bold negotiation grows patient share. <strong>U:</strong> Team dedication delivers patient success.
+         <div class="ebu-callout max-w-5xl w-full mt-8">
+            <strong>E:</strong> Efficient execution leads to tender win. <strong>B:</strong> Bold strategy pays off in key segments. <strong>U:</strong> Team delivers impactful results for patients.
         </div>
-         <div class="presenter-notes max-w-4xl w-full">
-             <strong>Slide 6: “2025: Tender Win Metrics”</strong>
+         <div class="presenter-notes max-w-5xl w-full">
+             <strong>Slide 6: “2025: Breakthrough Achieved”</strong>
              <ul>
-                 <li><strong>Objective:</strong> Celebrate success with key metrics.</li>
-                 <li><strong>Infographic Focus:</strong> The headline results - Budget Share %, Patient Share %, Patient number growth, and supply coverage.</li>
-                 <li><strong>Layout:</strong> Two large metric cards above a footer dashboard with secondary metrics.</li>
-                 <li><strong>Animation:</strong> Top cards fly-in left/right, footer fades in.</li>
+                 <li><strong>Objective:</strong> Celebrate success & impact.</li>
+                 <li><strong>Infographic Focus:</strong> Tender award segments, headline metrics (Budget/Patient Share), strategic outcome.</li>
              </ul>
          </div>
     </section>
 
     <section id="slide7" class="bg-slide-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" style="color: var(--magenta);">EBU Philosophy</h2>
          <div class="card animate-on-scroll zoom-in text-center w-full max-w-3xl mb-12" style="border-color: var(--magenta);">
-             <h2 class="text-30pt font-bold" style="color: var(--magenta);">EBU = Efficiency • Boldness • You</h2>
+             <h2 class="text-30pt font-bold" style="color: var(--magenta);">E • B • U</h2>
+             <p class="text-20pt mt-2" style="color: var(--dark-grey);">Efficiency • Boldness • You</p>
         </div>
         <div class="relative w-full max-w-4xl flex justify-center items-center mb-8">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -537,25 +811,22 @@
                  <div class="card animate-on-scroll fade-in text-center p-4" style="border-color: var(--rich-magenta); animation-delay: 0.4s;">
                     <i data-feather="shield" class="icon-md mx-auto mb-2" style="color: var(--rich-magenta);"></i>
                     <h3 class="text-xl font-bold mb-1" style="color: var(--rich-magenta);">B: Boldness</h3>
-                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Decision Resilience</p>
+                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Decision-Making & Resilience</p>
                 </div>
                  <div class="card animate-on-scroll fade-in text-center p-4" style="border-color: var(--fuchsia); animation-delay: 0.6s;">
-                    <i data-feather="user" class="icon-md mx-auto mb-2" style="color: var(--fuchsia);"></i>
-                    <h3 class="text-xl font-bold mb-1" style="color: var(--fuchsia);">U: You</h3>
-                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">Team Element</p>
+                    <i data-feather="users" class="icon-md mx-auto mb-2" style="color: var(--fuchsia);"></i> <h3 class="text-xl font-bold mb-1" style="color: var(--fuchsia);">U: You</h3>
+                    <p class="text-16pt mt-auto" style="color: var(--dark-grey);">The Power of Teamwork</p>
                 </div>
             </div>
         </div>
          <div class="ebu-callout text-center max-w-3xl w-full">
-            <strong>E:</strong> Precision planning. <strong>B:</strong> Resilient decisions. <strong>U:</strong> People power.
+            Our formula for success, connecting strategy to execution through our people.
         </div>
           <div class="presenter-notes max-w-3xl w-full">
-              <strong>Slide 7: “Today’s EBU DNA Formula”</strong>
+              <strong>Slide 7: “EBU Philosophy”</strong>
               <ul>
                   <li><strong>Objective:</strong> Define our core EBU formula.</li>
-                  <li><strong>Infographic Focus:</strong> The EBU equation and the definition of each component (Efficiency, Boldness, You).</li>
-                  <li><strong>Layout:</strong> Central formula card above three definition cards.</li>
-                  <li><strong>Animation:</strong> Formula card zooms in, definition cards fade in staggered.</li>
+                  <li><strong>Infographic Focus:</strong> The EBU equation and definition of each component.</li>
               </ul>
           </div>
     </section>
@@ -572,15 +843,13 @@
             </div>
         </div>
          <div class="ebu-callout text-center max-w-4xl w-full mb-8">
-            <strong>E:</strong> Execute precisely. <strong>B:</strong> Step out boldly. <strong>U:</strong> You drive our future.
+            <strong>E:</strong> Execute precisely. <strong>B:</strong> Step out boldly. <strong>U:</strong> You drive our future success.
         </div>
           <div class="presenter-notes max-w-4xl w-full">
               <strong>Slide 8: “Call to Action”</strong>
               <ul>
                   <li><strong>Objective:</strong> Mobilize the team and reinforce the 'U' in EBU.</li>
-                  <li><strong>Infographic Focus:</strong> The two core motivational messages: Pride in achievement and focus on future potential.</li>
-                  <li><strong>Layout:</strong> Two large side-by-side cards above the final banner.</li>
-                  <li><strong>Animation:</strong> Cards fade in staggered, banner flies in from bottom.</li>
+                  <li><strong>Infographic Focus:</strong> Core motivational messages.</li>
               </ul>
           </div>
         <div class="bottom-banner animate-on-scroll fly-in-bottom" style="animation-delay: 0.4s;">
@@ -600,9 +869,7 @@
                 <strong>Slide 9: “Inspirational Quote” (Concluding Slide)</strong>
                 <ul>
                     <li><strong>Objective:</strong> Conclude with a powerful message summarizing the EBU spirit.</li>
-                    <li><strong>Infographic Focus:</strong> The final summarizing quote reinforcing E, B, and U.</li>
-                    <li><strong>Layout:</strong> Single centered card.</li>
-                     <li><strong>Animation:</strong> Card fades in.</li>
+                    <li><strong>Infographic Focus:</strong> Final summarizing quote.</li>
                 </ul>
             </div>
         </div>
